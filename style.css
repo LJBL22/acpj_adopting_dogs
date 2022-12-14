@@ -127,6 +127,8 @@ header {
   /*暫時加上邊框，以利於辨識位置*/
   display: none;
   /* 原先不顯示 */
+  transition: display .2s ease-out;
+  /* 無效，因為跟 display none 無法同時存在 */
 }
 
 .navbar-brand {
