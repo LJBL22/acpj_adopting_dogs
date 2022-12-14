@@ -145,5 +145,9 @@ header {
 }
 
 .navbar-toggle:checked {
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
+}
+
+.navbar-toggle:checked~.nav {
+  border: 1px solid grey;
 }
