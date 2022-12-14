@@ -131,6 +131,7 @@ header {
   /* 原本無效，因為跟 display none 無法同時存在 */
   transform: scale(1, 0);
   transform-origin: top;
+  /* 設定起始點為上方，否則預設是中心點開始 */
   transition: display 0.3s ease-out;
 }
 
