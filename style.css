@@ -112,3 +112,34 @@ header {
   position: fixed;
   z-index: 5;
 }
+
+/* navbar */
+
+.nav {
+  position: absolute;
+  /* 依據父層 */
+  top: 100%;
+  /* 貼齊下緣 */
+  width: 100%;
+  /* 因為 postion abs 的關係，會脫離"文字流"，預設的 auto 轉變成 content-size 。設定完此行就自動置中了*/
+  background: #ffffff;
+  /* border: 1px solid grey */
+  /*暫時加上邊框，以利於辨識位置*/
+}
+
+.navbar-brand {
+  line-height: 60px;
+  /* 跟 header 等高，達到垂直置中*/
+  color: #267b98;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.nav-item {
+  margin: 1.4rem 0;
+  /* 讓行間有空間呼吸 */
+}
+
+.nav-link {
+  color: #267b98;
+}
