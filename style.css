@@ -143,3 +143,7 @@ header {
 .nav-link {
   color: #267b98;
 }
+
+.navbar-toggle:checked {
+  margin-left: 1rem;
+}
