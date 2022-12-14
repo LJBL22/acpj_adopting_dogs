@@ -125,10 +125,13 @@ header {
   background: #ffffff;
   /* border: 1px solid grey */
   /*暫時加上邊框，以利於辨識位置*/
-  display: none;
-  /* 原先不顯示 */
-  transition: display .2s ease-out;
-  /* 無效，因為跟 display none 無法同時存在 */
+  /* 移除這行：display: none; */
+  /* 修改下列這行，將 display 改成 transform */
+
+  /* 原本無效，因為跟 display none 無法同時存在 */
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: display 0.3s ease-out;
 }
 
 .navbar-brand {
@@ -142,6 +145,8 @@ header {
 .nav-item {
   margin: 1.4rem 0;
   /* 讓行間有空間呼吸 */
+  opacity: 0;
+  /* 預設透明度 */
 }
 
 .nav-link {
@@ -149,9 +154,10 @@ header {
 }
 
 .navbar-toggle:checked~.nav {
-  display: block;
+  transform: scale(1, 1);
 }
 
-.navbar-toggle:checked~.nav {
-  /* border: 1px solid grey; */
+.navbar-toggle:checked~.nav .nav-item {
+  opacity: 1;
+  /* 點選後才看得到，而且是 item本身；否則 .nav 會是全白 */
 }
