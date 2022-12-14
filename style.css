@@ -123,16 +123,14 @@ header {
   width: 100%;
   /* 因為 postion abs 的關係，會脫離"文字流"，預設的 auto 轉變成 content-size 。設定完此行就自動置中了*/
   background: #ffffff;
-  /* border: 1px solid grey */
-  /*暫時加上邊框，以利於辨識位置*/
-  /* 移除這行：display: none; */
-  /* 修改下列這行，將 display 改成 transform */
-
-  /* 原本無效，因為跟 display none 無法同時存在 */
+  transition: transform 0.2s ease-out;
+  /* 載明哪個目標要使用這個效果，原本是 display，現更改為 transform */
   transform: scale(1, 0);
+  /* scale() 函數能接受兩個值，scale(x,y) */
+  /* 行高0 代表不顯示 */
   transform-origin: top;
   /* 設定起始點為上方，否則預設是中心點開始 */
-  transition: display 0.3s ease-out;
+
 }
 
 .navbar-brand {
@@ -156,9 +154,12 @@ header {
 
 .navbar-toggle:checked~.nav {
   transform: scale(1, 1);
+  /* scale(x,y) 代表跟原本比例相同 */
 }
 
 .navbar-toggle:checked~.nav .nav-item {
+  /* 增加轉場效果 */
+  transition: opacity 0.2s ease-out 0.15s;
   opacity: 1;
   /* 點選後才看得到，而且是 item本身；否則 .nav 會是全白 */
 }
