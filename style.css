@@ -172,3 +172,9 @@ header {
   display: flex;
   align-items: center;
 }
+
+.hamburger {
+  width: 30px;
+  height: 3px;
+  background: #267b98;
+}
