@@ -173,8 +173,32 @@ header {
   align-items: center;
 }
 
+/* 利用偽元素，避免增加無意義的 html */
+/* 在手刻 */
+
 .hamburger {
+  position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
   width: 30px;
   height: 3px;
   background: #267b98;
+}
+
+.hamburger::before,
+.hamburger::after {
+  position: absolute;
+  left: 0;
+  content: '';
+}
+
+.hamburger::before {
+  bottom: 8px;
+}
+
+.hamburger::after {
+  top: 8px;
 }
