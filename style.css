@@ -85,14 +85,6 @@ a {
   background-repeat: no-repeat;
 }
 
-/********* 電腦版樣式 *********/
-@media screen and (min-width: 768px) {
-  .action {
-    font-size: 1.2rem;
-    padding: 0.75rem 2rem;
-  }
-}
-
 /* * * * * * 制定 header * * * * * */
 
 /*Main Header*/
@@ -213,4 +205,38 @@ header {
   position: absolute;
   /* 跳出來，不佔位子（影響logo) */
   visibility: hidden;
+}
+
+/********* 電腦版樣式 *********/
+@media screen and (min-width: 768px) {
+  .action {
+    font-size: 1.2rem;
+    padding: 0.75rem 2rem;
+  }
+
+  .navbar-toggle-label {
+    display: none;
+  }
+
+  .nav {
+    all: unset;
+  }
+
+  .nav-item {
+    margin: 0;
+    opacity: 1;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+  }
+
+  .navbar-brand {
+    grid-column: 2/3;
+  }
+
+  .nav {
+    grid-column: 3/-2;
+  }
 }
