@@ -248,6 +248,25 @@ header {
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
 }
 
+.banner-title {
+  margin-bottom: 0.4rem;
+}
+
+.main-banner .banner-title {
+  font-size: 2rem;
+  color: #1a5366;
+}
+
+.banner-description {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.main-banner .banner-description {
+  color: #267b98;
+  font-size: 1rem;
+}
+
 /********* 電腦版樣式 *********/
 @media screen and (min-width: 768px) {
   .action {
