@@ -1,54 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>毛小孩星球</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
-  <title>毛小孩星球</title>
-</head>
+  <body>
+    <!-- main header -->
+    <header>
+      <a href="#" class="navbar-brand">毛小孩星球</a>
+      <!-- input type checkbox -->
+      <input type="checkbox" id="navbar-toggle" class="navbar-toggle" />
+      <label for="navbar-toggle" class="navbar-toggle-label"
+        ><span class="hamburger"></span
+      ></label>
 
-<body>
-  <!-- main header -->
-  <header>
-    <a href="#" class="navbar-brand">毛小孩星球</a>
-    <!-- input type checkbox -->
-    <input type="checkbox" id="navbar-toggle" class="navbar-toggle">
-    <label for="navbar-toggle" class="navbar-toggle-label"><span class="hamburger"></span></label>
-
-    <!-- nav bar -->
-    <nav class="nav">
-      <ul class="nav-list">
-        <li class="nav-item"><a href="#activity" class="nav-link">近期活動</a></li>
-        <li class="nav-item"><a href="#album" class="nav-link">狗兒相片</a></li>
-        <li class="nav-item"><a href="#adoption" class="nav-link">領養資訊</a></li>
-      </ul>
-    </nav>
-  </header>
-
- <section id="activity" class="activity">
-  <div class="container">
-    <div class="banner-wrapper">
-      <div class="main-banner background-image">
-        <div class="banner-title"></div>
-        <div class="banner-description"></div>
-        <div class="action"></div>
+      <!-- nav bar -->
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#activity" class="nav-link">近期活動</a>
+          </li>
+          <li class="nav-item">
+            <a href="#album" class="nav-link">狗兒相片</a>
+          </li>
+          <li class="nav-item">
+            <a href="#adoption" class="nav-link">領養資訊</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!-- activity -->
+    <section id="activity" class="activity">
+      <div class="container">
+        <div class="banner-wrapper">
+          <div class="main-banner background-image">
+            <h1 class="banner-title">帶毛小孩回家吧</h1>
+            <p class="banner-description">Bring them back home</p>
+            <a href="#" class="action">領養去</a>
+          </div>
+          <div class="sub-banner sub-banner-left background-image">
+            <h3 class="banner-title">捐款送玩偶</h3>
+            <p class="banner-description">NTD 100</p>
+            <a href="#" class="action">捐款</a>
+          </div>
+          <div class="sub-banner sub-banner-right background-image">
+            <h3 class="banner-title">捐款送狗骨頭</h3v>
+            <p class="banner-description">NTD 300</p>
+            <a href="#" class="action">捐款</a>
+          </div>
+        </div>
       </div>
-      <div class="sub-banner sub-banner-left background-image">
-        <div class="banner-title"></div>
-        <div class="banner-description"></div>
-        <div class="action"></div>
-      </div>
-      <div class="sub-banner sub-banner-right background-image">
-        <div class="banner-title"></div>
-        <div class="banner-description"></div>
-        <div class="action"></div>
-      </div>
-    </div>
-  </div>
- </section>
-
-</body>
-
+    </section>
+    
+  </body>
 </html>

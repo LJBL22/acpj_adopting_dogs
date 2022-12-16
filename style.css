@@ -122,7 +122,6 @@ header {
   /* 行高0 代表不顯示 */
   transform-origin: top;
   /* 設定起始點為上方，否則預設是中心點開始 */
-
 }
 
 .navbar-brand {
@@ -144,12 +143,12 @@ header {
   color: #267b98;
 }
 
-.navbar-toggle:checked~.nav {
+.navbar-toggle:checked ~ .nav {
   transform: scale(1, 1);
   /* scale(x,y) 代表跟原本比例相同 */
 }
 
-.navbar-toggle:checked~.nav .nav-item {
+.navbar-toggle:checked ~ .nav .nav-item {
   /* 增加轉場效果 */
   transition: opacity 0.2s ease-out 0.15s;
   opacity: 1;
@@ -184,7 +183,7 @@ header {
 .hamburger::after {
   position: absolute;
   left: 0;
-  content: '';
+  content: "";
 }
 
 .hamburger::before {
@@ -207,6 +206,27 @@ header {
   visibility: hidden;
 }
 
+.banner-wrapper {
+  padding-top: 92px;
+  display: grid;
+  /* combine grid-template-rows/columns */
+  grid-template: repeat(2, 250px) / repeat(4, 1fr);
+  grid-template-areas:
+    "main main main main"
+    "left left right right";
+}
+
+.main-banner {
+  grid-area: main;
+}
+
+.sub-banner-left {
+  grid-area: left;
+}
+
+.sub-banner-right {
+  grid-area: right;
+}
 /********* 電腦版樣式 *********/
 @media screen and (min-width: 768px) {
   .action {
