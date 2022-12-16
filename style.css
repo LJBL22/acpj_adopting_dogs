@@ -332,4 +332,9 @@ header {
       "main main main left"
       "main main main right";
   }
+
+  .main-banner {
+    justify-content: center;
+    align-items: start;
+  }
 }
