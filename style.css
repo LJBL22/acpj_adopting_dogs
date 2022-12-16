@@ -220,6 +220,7 @@ header {
 
   .nav {
     all: unset;
+    grid-column: 3/-2;
   }
 
   .nav-item {
@@ -232,11 +233,18 @@ header {
     grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
   }
 
+  /* minmax 用『至少 600px』的設定有效地將 nav 與 logo 之間的距離，隔開 */
+
   .navbar-brand {
     grid-column: 2/3;
   }
 
-  .nav {
-    grid-column: 3/-2;
+  .nav-list {
+    display: grid;
+    height: 100%;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: end;
+    gap: 2rem;
   }
 }
