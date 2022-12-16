@@ -267,6 +267,23 @@ header {
   font-size: 1rem;
 }
 
+/* 其實本來就是了 在 64 行就有設置過 （從 devtool 檢查到*/
+/* 或許因為這是練習，而在未來 RWD 有提醒作用 */
+.sub-banner .action {
+  font-size: 1rem;
+  padding: 0.25rem 1rem;
+}
+
+/* 我感覺這裡特地寫很長的原因是因為避免未來忘了該屬性的源頭 */
+/* 且比起寫單純的元素選擇器(例如 h3 p )，屬性選擇器在解析上應該比較特定 */
+.sub-banner .banner-title,
+.sub-banner .banner-description {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
 /********* 電腦版樣式 *********/
 @media screen and (min-width: 768px) {
   .action {
