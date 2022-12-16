@@ -325,4 +325,11 @@ header {
     justify-content: end;
     gap: 2rem;
   }
+
+  .banner-wrapper {
+    gap: 1.5rem;
+    grid-template-areas:
+      "main main main left"
+      "main main main right";
+  }
 }
