@@ -221,6 +221,7 @@ header {
 
 .main-banner {
   grid-area: main;
+  /* don't get it why "main" is white at vs code */
   background-image: url("https://images.unsplash.com/photo-1520087619250-584c0cbd35e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1285&q=80");
 }
 
