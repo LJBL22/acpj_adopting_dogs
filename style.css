@@ -337,4 +337,17 @@ header {
     justify-content: center;
     align-items: start;
   }
+  /* check devtools to see the difference */
+  .main-banner .banner-title {
+    font-size: 4rem;
+  }
+  .main-banner .banner-description {
+    font-size: 2rem;
+  }
+  .sub-banner .banner-title {
+    font-size: 2rem;
+  }
+  .sub-banner .action {
+    font-size: 1.2rem;
+  }
 }
