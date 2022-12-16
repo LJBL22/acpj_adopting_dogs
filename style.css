@@ -275,7 +275,7 @@ header {
 }
 
 /* 我感覺這裡特地寫很長的原因是因為避免未來忘了該屬性的源頭 */
-/* 且比起寫單純的元素選擇器(例如 h3 p )，屬性選擇器在解析上應該比較特定 */
+/* 且比起寫單純的元素選擇器(例如 h3 p )，屬性選擇器在解析上應該比較特定  > 應是跟優先權有關 */
 .sub-banner .banner-title,
 .sub-banner .banner-description {
   color: #fff;
