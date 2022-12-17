@@ -323,7 +323,16 @@ header {
 
 .card-text {
   position: absolute;
+  opacity: 0;
+  color: #fff;
 }
+
+/* hover effect: text appear on img */
+.card:hover .card-text {
+  visibility: visible;
+  opacity: 1;
+}
+
 /********* 電腦版樣式 *********/
 @media screen and (min-width: 768px) {
   .action {
