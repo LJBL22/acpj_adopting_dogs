@@ -286,6 +286,27 @@ header {
   letter-spacing: 1px;
 }
 
+.album-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* grid-template-rows: auto; */
+}
+
+.card {
+  /* width: 100%; */
+}
+
+.card-img {
+  display: block;
+  width: 100%;
+  /* background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat; */
+}
+
+.card-text {
+  position: absolute;
+}
 /********* 電腦版樣式 *********/
 @media screen and (min-width: 768px) {
   .action {
