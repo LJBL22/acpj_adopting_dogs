@@ -297,6 +297,10 @@ header {
 /* try to crop images to square */
 .card {
   position: relative;
+  /* text center */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card::after {
