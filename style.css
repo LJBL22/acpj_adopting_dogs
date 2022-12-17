@@ -331,6 +331,15 @@ header {
   color: #fff;
 }
 
+.card-title {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.card-description {
+  font-size: 1.17rem;
+}
+
 /* hover effect: text appear on img */
 .card:hover .card-text {
   visibility: visible;
