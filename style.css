@@ -293,16 +293,26 @@ header {
   /* grid-template-rows: auto; */
 }
 
+/* from stack overflow */
 .card {
-  /* width: 100%; */
+  position: relative;
+}
+
+.card::after {
+  content: "";
+  display: block;
+  /* 別的地方有查到但不會用 */
+  padding-bottom: 100%;
 }
 
 .card-img {
-  display: block;
+  position: absolute;
+  /* static => absolute 字就跑到圖片上了@@ (此時已經有設定字的 absolute */
   width: 100%;
-  /* background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat; */
+  height: 100%;
+  /* 就變成正方形了但會變形 */
+  object-fit: cover;
+  /* 加了此語法就完成了 */
 }
 
 .card-text {
