@@ -286,14 +286,15 @@ header {
   letter-spacing: 1px;
 }
 
+/* use grid to create RWD effects */
 .album-wrapper {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  /* grid-template-rows: auto; */
 }
 
 /* from stack overflow */
+/* try to crop images to square */
 .card {
   position: relative;
 }
@@ -313,6 +314,11 @@ header {
   /* 就變成正方形了但會變形 */
   object-fit: cover;
   /* 加了此語法就完成了 */
+}
+
+/* 可能是因為 grid 的原因，沒有寫第二張卡片（也是直長方形）的選擇器，也可以成功 */
+.album-wrapper:first-child.card-img {
+  height: 50%;
 }
 
 .card-text {
