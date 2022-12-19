@@ -344,9 +344,12 @@ header {
   content: "";
   position: absolute;
   width: 90%;
-  height: .05rem;
-  background: #fff;
-  transform: scaleX(0);
+  border-top: 0.01rem solid #fff;
+  border-right: 0.01rem solid #fff;
+  border-left: 0.01rem solid #fff;
+  border-bottom: 0.01rem solid #fff;
+  height: 90%;
+  transform: scale(0, 0);
   bottom: 5%;
   left: 5%;
   transform-origin: center;
@@ -361,7 +364,7 @@ header {
 }
 
 .card:hover::before {
-  transform: scaleX(1);
+  transform: scale(1, 1);
   transform-origin: center;
 }
 
