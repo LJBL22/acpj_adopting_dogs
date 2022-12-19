@@ -343,12 +343,12 @@ header {
 .card::before {
   content: "";
   position: absolute;
-  width: 95%;
-  height: .1rem;
-  background: red;
+  width: 90%;
+  height: .05rem;
+  background: #fff;
   transform: scaleX(0);
-  bottom: 30px;
-  left: 50%;
+  bottom: 5%;
+  left: 5%;
   transform-origin: center;
   transition: transform 0.25s ease-out;
   z-index: 99;
