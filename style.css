@@ -103,7 +103,7 @@ header {
 header {
   /*固定置頂*/
   position: fixed;
-  z-index: 5;
+  z-index: 99;
 }
 
 /* navbar */
@@ -309,7 +309,7 @@ header {
 .album-wrapper {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
 /* from stack overflow */
@@ -339,6 +339,7 @@ header {
   /* 加了此語法就完成了 */
 }
 
+
 /* 可能是因為 grid 的原因，沒有寫第二張卡片（也是直長方形）的選擇器，也可以成功 */
 .album-wrapper:first-child.card-img {
   height: 50%;
@@ -359,13 +360,17 @@ header {
   font-size: 1.17rem;
 }
 
+/* 嘗試刪掉 正方形的 after (佔用了） */
+/* 新增左右的 after */
+/* 這裡用上下 */
+/* 動畫共有三種 */
 .card::before {
   content: "";
   position: absolute;
   width: 90%;
   border-top: 0.01rem solid #fff;
-  border-right: 0.01rem solid #fff;
-  border-left: 0.01rem solid #fff;
+  /* border-right: 0.01rem solid #fff;
+  border-left: 0.01rem solid #fff; */
   border-bottom: 0.01rem solid #fff;
   height: 90%;
   transform: scale(0, 0);
@@ -373,7 +378,7 @@ header {
   left: 5%;
   transform-origin: center;
   transition: transform 0.25s ease-out;
-  z-index: 99;
+  z-index: 10;
 }
 
 /* hover effect: text appear on img */
@@ -382,9 +387,23 @@ header {
   opacity: 1;
 }
 
+/* hover effect: pseudo element lines animation */
 .card:hover::before {
   transform: scale(1, 1);
   transform-origin: center;
+}
+
+.card-img::before {
+  content: "哈囉我在哪裡";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+}
+
+.card-img:hover::before {
+  opacity: 1;
 }
 
 /* not sure how to make rectangle to square grid without RWD */
