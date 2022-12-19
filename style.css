@@ -345,15 +345,24 @@ header {
   position: absolute;
   width: 95%;
   height: .1rem;
-  background: #fff;
-  opacity: 0;
+  background: red;
+  transform: scaleX(0);
+  bottom: 30px;
+  left: 50%;
+  transform-origin: center;
+  transition: transform 0.25s ease-out;
+  z-index: 99;
 }
 
 /* hover effect: text appear on img */
-.card:hover .card-text,
-.card:hover .card::before {
+.card:hover .card-text {
   visibility: visible;
   opacity: 1;
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+  transform-origin: center;
 }
 
 /* not sure how to make rectangle to square grid without RWD */
