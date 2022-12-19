@@ -114,7 +114,7 @@ header {
   top: 100%;
   /* 貼齊下緣 */
   width: 100%;
-  /* 因為 postion abs 的關係，會脫離"文字流"，預設的 auto 轉變成 content-size 。設定完此行就自動置中了*/
+  /* 因為 position abs 的關係，會脫離"文字流"，預設的 auto 轉變成 content-size 。設定完此行就自動置中了*/
   background: #ffffff;
   transition: transform 0.2s ease-out;
   /* 載明哪個目標要使用這個效果，原本是 display，現更改為 transform */
@@ -144,12 +144,12 @@ header {
   color: #267b98;
 }
 
-.navbar-toggle:checked ~ .nav {
+.navbar-toggle:checked~.nav {
   transform: scale(1, 1);
   /* scale(x,y) 代表跟原本比例相同 */
 }
 
-.navbar-toggle:checked ~ .nav .nav-item {
+.navbar-toggle:checked~.nav .nav-item {
   /* 增加轉場效果 */
   transition: opacity 0.2s ease-out 0.15s;
   opacity: 1;
@@ -297,7 +297,7 @@ header {
 /* try to crop images to square */
 .card {
   position: relative;
-  /* text center */
+  /* text locate center */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -340,12 +340,24 @@ header {
   font-size: 1.17rem;
 }
 
+.card::before {
+  content: "";
+  position: absolute;
+  width: 95%;
+  height: .1rem;
+  background: #fff;
+  opacity: 0;
+}
+
 /* hover effect: text appear on img */
-.card:hover .card-text {
+.card:hover .card-text,
+.card:hover .card::before {
   visibility: visible;
   opacity: 1;
 }
 
+/* not sure how to make rectangle to square grid without RWD */
+/* so far around 2.5-3 hours */
 /********* 電腦版樣式 *********/
 @media screen and (min-width: 768px) {
   .action {
@@ -398,16 +410,20 @@ header {
     justify-content: center;
     align-items: start;
   }
+
   /* check devtools to see the difference */
   .main-banner .banner-title {
     font-size: 4rem;
   }
+
   .main-banner .banner-description {
     font-size: 2rem;
   }
+
   .sub-banner .banner-title {
     font-size: 2rem;
   }
+
   .sub-banner .action {
     font-size: 1.2rem;
   }
