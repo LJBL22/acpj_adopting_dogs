@@ -309,11 +309,12 @@ header {
 .album-wrapper {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* 修正 250px 較符合大螢幕一行四欄 */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  /* 就是沒給到 rows...圖片大小不一的狀況就解決了！ */
+  grid-auto-rows: 250px;
 }
 
-/* from stack overflow */
-/* try to crop images to square */
 .card {
   position: relative;
   /* text locate center */
@@ -322,27 +323,23 @@ header {
   align-items: center;
 }
 
-.card::after {
+/* try to crop images to square */
+/* don't need it now */
+/* .card::after {
   content: "";
   display: block;
-  /* 別的地方有查到但不會用 */
   padding-bottom: 100%;
-}
+} */
+
 
 .card-img {
-  position: absolute;
-  /* static => absolute 字就跑到圖片上了@@ (此時已經有設定字的 absolute */
+  /* 這行是當初切正方形寫的，去掉 */
+  /* position: absolute; */
   width: 100%;
   height: 100%;
-  /* 就變成正方形了但會變形 */
   object-fit: cover;
-  /* 加了此語法就完成了 */
-}
-
-
-/* 可能是因為 grid 的原因，沒有寫第二張卡片（也是直長方形）的選擇器，也可以成功 */
-.album-wrapper:first-child.card-img {
-  height: 50%;
+  /* 觀摩 KIM 但長得不太一樣 */
+  object-position: top;
 }
 
 .card-text {
@@ -393,14 +390,14 @@ header {
   transform-origin: center;
 }
 
-.card-img::before {
+/* .card-img::before {
   content: "哈囉我在哪裡";
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.6);
   opacity: 0;
-}
+} */
 
 .card-img:hover::before {
   opacity: 1;
