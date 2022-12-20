@@ -334,11 +334,7 @@ header {
 
 .card-text {
   position: absolute;
-  opacity: 0;
   color: #fff;
-
-  /* background-color: rgba(166, 169, 174, 0.25); */
-  background-color: rgba(255, 255, 255, 0.5);
   /* 字會在下緣，以此置中 */
   top: 0px;
   bottom: 0px;
@@ -348,6 +344,14 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* 因為有動畫的顧慮，這個需要取消 */
+  /* opacity: 0; */
+}
+
+/* 接著個別處理文字的前後可見 */
+.card-text>h3,
+.card-text>p {
+  visibility: hidden;
 }
 
 .card-title {
@@ -399,6 +403,16 @@ header {
   transform: scale(1, 1.05);
 }
 
+.card-text:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.card-text:hover>h3,
+.card-text:hover>p {
+  /* 加上這行，hover 結束後、動畫可以滑順收回 */
+  transition: 0.1s ease-in;
+  visibility: visible;
+}
 
 /********* 電腦版樣式 *********/
 @media screen and (min-width: 768px) {
