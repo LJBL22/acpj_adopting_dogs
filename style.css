@@ -339,6 +339,7 @@ header {
 
   /* background-color: rgba(166, 169, 174, 0.25); */
   background-color: rgba(255, 255, 255, 0.5);
+  /* 字會在下緣，以此置中 */
   top: 0px;
   bottom: 0px;
   right: 0px;
@@ -365,13 +366,33 @@ header {
 /* 這裡用上下 */
 /* 動畫共有三種 */
 .card::before {
+  /* content: "";
+  position: absolute;
+
+
+  bottom: 5%;
+  left: 5%;
+
+  border-top: 0.01rem solid #fff;
+  border-bottom: 0.01rem solid #fff;
+
+  width: 90%;
+
+  height: 90%; */
+  /* transform: scale(0, 0); */
+
+  /* transform-origin: center; */
+  /* transition: transform 0.25s ease-out; */
+  /* transition: 0.3s */
+  /* z-index: 10; */
+}
+
+/* .card::after {
   content: "";
   position: absolute;
   width: 90%;
-  border-top: 0.01rem solid #fff;
-  /* border-right: 0.01rem solid #fff;
-  border-left: 0.01rem solid #fff; */
-  border-bottom: 0.01rem solid #fff;
+  border-right: 0.01rem solid #fff;
+  border-left: 0.01rem solid #fff;
   height: 90%;
   transform: scale(0, 0);
   bottom: 5%;
@@ -379,18 +400,22 @@ header {
   transform-origin: center;
   transition: transform 0.25s ease-out;
   z-index: 10;
-}
+} */
+
 
 /* hover effect: text appear on img */
 .card:hover .card-text {
-  visibility: visible;
+  /* visibility: visible; */
   opacity: 1;
 }
 
 /* hover effect: pseudo element lines animation */
-.card:hover::before {
-  transform: scale(1, 1);
-  transform-origin: center;
+.card:hover::before,
+.card:hover::after {
+  /* transform: scale(1, 1);
+  transform-origin: center; */
+  /* left: 50%;
+  right: 50%; */
 }
 
 
