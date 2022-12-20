@@ -1,0 +1,484 @@
+/* * * *CSS reset 還原瀏覽器預設設定* * * */
+/* 載入字型 */
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:400,700&display=swap&subset=chinese-traditional");
+
+/* 通用設定，設定前後的偽元素，統一 border-box */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: #f6f7f8;
+  font-family: "Noto Sans TC", sans-serif;
+  /* 設定字型 */
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  line-height: 0.9;
+}
+
+p {
+  margin: 0;
+}
+
+ul,
+li {
+  list-style-type: none;
+  /* 拿掉 bullets */
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  /* 拿掉底線 */
+}
+
+/* * * * * * *撰寫共用樣式 * * * * * * */
+
+/* 設定區塊寬度一致並置中 */
+/* 新增了第二個區塊後意識到這個是有用意的，可以讓後面的區塊(sections)也因為同樣的名稱而設定統一的寬度 */
+.container {
+  width: 85%;
+  margin: 0 auto 3rem auto;
+}
+
+/* 上 0 下統一隔開各個 container 的間隔 3rem */
+
+/* 共用按鈕樣式 */
+.action {
+  color: white;
+  background: #39bae6;
+  border-radius: 0.25rem;
+  display: inline-block;
+  font-size: 1rem;
+  padding: 0.25rem 1rem;
+  transition: all 0.1s linear;
+}
+
+.action:hover {
+  background: #267c99;
+  /* 陰影 */
+  -webkit-box-shadow: 0px 1px 5px 0px rgba(87, 87, 87, 1);
+  -moz-box-shadow: 0px 1px 5px 0px rgba(87, 87, 87, 1);
+  box-shadow: 0px 1px 5px 0px rgba(87, 87, 87, 1);
+}
+
+.background-image {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* * * * * * 制定 header * * * * * */
+
+/*Main Header*/
+header {
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  background: #ffffff;
+  /* 陰影 */
+  -webkit-box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  /*固定置頂*/
+  position: fixed;
+  z-index: 99;
+}
+
+/* navbar */
+
+.nav {
+  position: absolute;
+  /* 依據父層 */
+  top: 100%;
+  /* 貼齊下緣 */
+  width: 100%;
+  /* 因為 position abs 的關係，會脫離"文字流"，預設的 auto 轉變成 content-size 。設定完此行就自動置中了*/
+  background: #ffffff;
+  transition: transform 0.2s ease-out;
+  /* 載明哪個目標要使用這個效果，原本是 display，現更改為 transform */
+  transform: scale(1, 0);
+  /* scale() 函數能接受兩個值，scale(x,y) */
+  /* 行高0 代表不顯示 */
+  transform-origin: top;
+  /* 設定起始點為上方，否則預設是中心點開始 */
+}
+
+.navbar-brand {
+  line-height: 60px;
+  /* 跟 header 等高，達到垂直置中*/
+  color: #267b98;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.nav-item {
+  margin: 1.4rem 0;
+  /* 讓行間有空間呼吸 */
+  opacity: 0;
+  /* 預設透明度 */
+}
+
+.nav-link {
+  color: #267b98;
+}
+
+/* 胡亂加的，暫未成功，偽元素變成一個點 */
+/* .nav-link::after {
+  display: flex;
+  content: "";
+  position: absolute;
+  width: 100;
+  height: .01rem;
+  background: #267b98;
+  bottom: 3px;
+  transform-origin: left;
+  transition: transform 0.25s ease-out;
+  z-index: 99;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: center;
+} */
+
+.navbar-toggle:checked~.nav {
+  transform: scale(1, 1);
+  /* scale(x,y) 代表跟原本比例相同 */
+}
+
+.navbar-toggle:checked~.nav .nav-item {
+  /* 增加轉場效果 */
+  transition: opacity 0.2s ease-out 0.15s;
+  opacity: 1;
+  /* 點選後才看得到，而且是 item本身；否則 .nav 會是全白 */
+}
+
+.navbar-toggle-label {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 7.5%;
+  display: flex;
+  align-items: center;
+}
+
+/* 利用偽元素，避免增加無意義的 html */
+/* 在手刻 */
+
+.hamburger {
+  position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  width: 30px;
+  height: 3px;
+  background: #267b98;
+}
+
+.hamburger::before,
+.hamburger::after {
+  position: absolute;
+  left: 0;
+  content: "";
+}
+
+.hamburger::before {
+  bottom: 8px;
+}
+
+.hamburger::after {
+  top: 8px;
+}
+
+/* 我的版本，有細微差異，都可以運用 */
+/* .navbar-toggle {
+  display: none;
+} */
+
+/* 教案版本 */
+.navbar-toggle {
+  position: absolute;
+  /* 跳出來，不佔位子（影響logo) */
+  visibility: hidden;
+}
+
+.banner-wrapper {
+  padding-top: 92px;
+  display: grid;
+  /* combine grid-template-rows/columns */
+  grid-template: repeat(2, 250px) / repeat(4, 1fr);
+  /* grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 250px); */
+  gap: 0.5rem;
+  grid-template-areas:
+    "main main main main"
+    "left left right right";
+}
+
+.main-banner {
+  grid-area: main;
+  /* don't get it why "main" is white at vs code */
+  background-image: url("https://images.unsplash.com/photo-1520087619250-584c0cbd35e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1285&q=80");
+}
+
+.sub-banner-left {
+  grid-area: left;
+  background-image: url("https://images.unsplash.com/photo-1569809317138-8d2ff6060c4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80");
+}
+
+.sub-banner-right {
+  grid-area: right;
+  background-image: url("https://images.unsplash.com/photo-1535294435445-d7249524ef2e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80");
+}
+
+.main-banner,
+.sub-banner {
+  padding: 1rem;
+  /* 注意，他是 grid-item；同時他也可以是 flex container */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  /* ac 提供 banner 陰影設定 */
+  -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
+}
+
+.banner-title {
+  margin-bottom: 0.4rem;
+}
+
+.main-banner .banner-title {
+  font-size: 2rem;
+  color: #1a5366;
+}
+
+.banner-description {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.main-banner .banner-description {
+  color: #267b98;
+  font-size: 1rem;
+}
+
+/* 其實本來就是了 在 64 行就有設置過 （從 devtool 檢查到*/
+/* 或許因為這是練習，而在未來 RWD 有提醒作用 */
+.sub-banner .action {
+  font-size: 1rem;
+  padding: 0.25rem 1rem;
+}
+
+/* 我感覺這裡特地寫很長的原因是因為避免未來忘了該屬性的源頭 */
+/* 且比起寫單純的元素選擇器(例如 h3 p )，屬性選擇器在解析上應該比較特定  > 應是跟優先權有關 */
+.sub-banner .banner-title,
+.sub-banner .banner-description {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+/************** A13 starts here **************/
+/* use grid to create RWD effects */
+.album-wrapper {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+}
+
+.card {
+  position: relative;
+  /* text locate center */
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 觀摩 KIM 但長得不太一樣 */
+  object-position: top;
+}
+
+.card-text {
+  position: absolute;
+  color: #fff;
+  /* 字會在下緣，以此置中 */
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* 因為有動畫的顧慮，這個需要取消 */
+  /* opacity: 0; */
+}
+
+/* 接著個別處理文字的前後可見 */
+.card-text>h3,
+.card-text>p {
+  visibility: hidden;
+}
+
+.card-title {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.card-description {
+  font-size: 1.17rem;
+}
+
+/* 嘗試刪掉 正方形的 after (佔用了） */
+/* 新增左右的 after */
+/* 這裡用上下 */
+/* 動畫共有三種 */
+.card-text::before,
+.card-text::after {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  transition: transform 0.25s ease-out;
+}
+
+.card-text::before {
+  border-top: 0.01rem solid #fff;
+  border-bottom: 0.01rem solid #fff;
+  transform: scale(0, 1);
+}
+
+.card-text::after {
+  border-right: 0.01rem solid #fff;
+  border-left: 0.01rem solid #fff;
+  transform: scale(1, 0);
+}
+
+/* hover effect: text appear on img */
+.card:hover .card-text {
+  /* visibility: visible; */
+  opacity: 1;
+}
+
+/* hover effect: pseudo element lines animation */
+.card-text:hover::before {
+  transform: scale(1.05, 1);
+}
+
+.card-text:hover::after {
+  transform: scale(1, 1.05);
+}
+
+.card-text:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.card-text:hover>h3,
+.card-text:hover>p {
+  /* 加上這行，hover 結束後、動畫可以滑順收回 */
+  transition: 0.1s ease-in;
+  visibility: visible;
+}
+
+/********* 電腦版樣式 *********/
+@media screen and (min-width: 768px) {
+  .action {
+    font-size: 1.2rem;
+    padding: 0.75rem 2rem;
+  }
+
+  .navbar-toggle-label {
+    display: none;
+  }
+
+  .nav {
+    all: unset;
+    grid-column: 3/-2;
+  }
+
+  .nav-item {
+    margin: 0;
+    opacity: 1;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+  }
+
+  /* minmax 用『至少 600px』的設定有效地將 nav 與 logo 之間的距離，隔開 */
+
+  .navbar-brand {
+    grid-column: 2/3;
+  }
+
+  .nav-list {
+    display: grid;
+    height: 100%;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: end;
+    gap: 2rem;
+  }
+
+  .banner-wrapper {
+    gap: 1.5rem;
+    grid-template-areas:
+      "main main main left"
+      "main main main right";
+  }
+
+  .main-banner {
+    justify-content: center;
+    align-items: start;
+  }
+
+  /* check devtools to see the difference */
+  .main-banner .banner-title {
+    font-size: 4rem;
+  }
+
+  .main-banner .banner-description {
+    font-size: 2rem;
+  }
+
+  .sub-banner .banner-title {
+    font-size: 2rem;
+  }
+
+  .sub-banner .action {
+    font-size: 1.2rem;
+  }
+}
