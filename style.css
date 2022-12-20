@@ -305,6 +305,7 @@ header {
   letter-spacing: 1px;
 }
 
+/************** A13 starts here **************/
 /* use grid to create RWD effects */
 .album-wrapper {
   display: grid;
@@ -323,18 +324,7 @@ header {
   align-items: center;
 }
 
-/* try to crop images to square */
-/* don't need it now */
-/* .card::after {
-  content: "";
-  display: block;
-  padding-bottom: 100%;
-} */
-
-
 .card-img {
-  /* 這行是當初切正方形寫的，去掉 */
-  /* position: absolute; */
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -390,21 +380,7 @@ header {
   transform-origin: center;
 }
 
-/* .card-img::before {
-  content: "哈囉我在哪裡";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.6);
-  opacity: 0;
-} */
 
-.card-img:hover::before {
-  opacity: 1;
-}
-
-/* not sure how to make rectangle to square grid without RWD */
-/* so far around 2.5-3 hours */
 /********* 電腦版樣式 *********/
 @media screen and (min-width: 768px) {
   .action {
