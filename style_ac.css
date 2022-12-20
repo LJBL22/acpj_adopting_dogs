@@ -312,7 +312,9 @@ header {
   /*改用 auto-fit*/
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   /* 暫時未知 */
-  /* width: 100%; */
+  /* 開發的小習慣，雖然不影響整體的結構，但是加上 width: 100% 其實是可以讓後面的開發者知道這個 wrapper 的寬度是100%。這樣可以加快後面接手或者維護的同事更快理解狀況 */
+  /* 實作上改設定 80% 測驗即可發現，例如 auto-fit （且只有一張 .card 的話）會佔滿置左 80% 的空間 */
+  width: 100%;
 }
 
 .card {
