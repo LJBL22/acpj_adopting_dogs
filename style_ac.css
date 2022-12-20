@@ -322,7 +322,7 @@ header {
   overflow: hidden;
   width: 100%;
   height: 100%;
-  /* 整個、包含子元素的 background （只要都是同個頁面流） */
+  /* 設定背景色。整個、包含子元素的 background （只要都是同個頁面流） */
   background: #a9a9a9;
   /*陰影*/
   -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
@@ -334,9 +334,11 @@ header {
   width: 100%;
   height: 300px;
   object-fit: cover;
-  /* 暫時未知 （教案有說明）*/
-  /* display: block; */
-  /* transition: opacity 0.2s ease-out; */
+  /* 實測 inline 撐開 block 有一些預設的間隔（下底透出背景灰）更改後就沒了 */
+  display: block;
+  /* 加上了這行，後來的 codepen 又沒有；看 MDN 似乎要加，但沒加好像也沒關係？ */
+  opacity: 1;
+  transition: opacity 0.2s ease-out;
 }
 
 .card-text {
@@ -370,6 +372,12 @@ header {
   font-size: 1rem;
 }
 
+.card:hover .card-img {
+  /* 思考上是 hover 效果為圖片透明化，露出背後的灰色底 */
+  /* 若設為 0 則為全灰 */
+  opacity: 0.4;
+}
+
 /* .card::before,
 .card::after {
   content: "";
@@ -401,9 +409,7 @@ header {
   transform: scale(1, 1.05);
 } */
 
-/* .card:hover .card-img {
-  opacity: 0.4;
-} */
+
 
 
 
