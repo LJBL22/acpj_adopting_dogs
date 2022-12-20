@@ -332,11 +332,14 @@ header {
 
 .card-img {
   width: 100%;
+  /* 若不寫高等於 height:100% */
   height: 300px;
+  /* 寫了之後變形，加這個語法就會自動 fit */
   object-fit: cover;
   /* 實測 inline 撐開 block 有一些預設的間隔（下底透出背景灰）更改後就沒了 */
   display: block;
   /* 加上了這行，後來的 codepen 又沒有；看 MDN 似乎要加，但沒加好像也沒關係？ */
+  /* 這應該是預設的，搭配 hover 是代表從 1 到 0.4 */
   opacity: 1;
   transition: opacity 0.2s ease-out;
 }
@@ -378,7 +381,7 @@ header {
   opacity: 0.4;
 }
 
-/* .card::before,
+.card::before,
 .card::after {
   content: "";
   position: absolute;
@@ -386,33 +389,37 @@ header {
   bottom: 1rem;
   right: 1rem;
   left: 1rem;
+  /* 檢查用 */
+  /* outline: 1px solid lavender; */
+  /* 會緩慢結束的 ease-out */
   transition: transform 0.4s ease-out;
-} */
+}
 
-/* .card::before {
+.card::before {
   border-top: 1px solid #fff;
   border-bottom: 1px solid #fff;
+  /* x 軸的寬度從 0 到放大到 1(.05)，y 軸則維持 1 不變 */
+  /*設定初始值*/
   transform: scale(0, 1);
-} */
+}
 
-/* .card::after {
+.card::after {
   border-right: 1px solid #fff;
   border-left: 1px solid #fff;
+  /*設定初始值*/
   transform: scale(1, 0);
-} */
+}
 
-/* .card:hover::before {
-  transform: scale(1.05, 1);
-} */
+.card:hover::before {
+  /* 製造往內縮的感覺 */
+  /* transform: scale(1, 0.95); */
+  transform: scale(1.05, 1)
+}
 
-/* .card:hover::after {
+.card:hover::after {
+  /* transform: scale(0.95, 1); */
   transform: scale(1, 1.05);
-} */
-
-
-
-
-
+}
 
 /********* 電腦版樣式 *********/
 @media screen and (min-width: 768px) {
