@@ -305,112 +305,97 @@ header {
   letter-spacing: 1px;
 }
 
-/************** A13 starts here **************/
-/* use grid to create RWD effects */
+/* Album */
 .album-wrapper {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  width: 100%;
 }
 
 .card {
   position: relative;
-  /* text locate center */
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  background: #a9a9a9;
+  -webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.08);
 }
 
 .card-img {
   width: 100%;
-  height: 100%;
+  height: 300px;
   object-fit: cover;
-  /* 觀摩 KIM 但長得不太一樣 */
-  object-position: top;
-}
-
-.card-text {
-  position: absolute;
-  color: #fff;
-  /* 字會在下緣，以此置中 */
-  top: 0px;
-  bottom: 0px;
-  right: 0px;
-  left: 0px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* 因為有動畫的顧慮，這個需要取消 */
-  /* opacity: 0; */
-}
-
-/* 接著個別處理文字的前後可見 */
-.card-text>h3,
-.card-text>p {
-  visibility: hidden;
+  display: block;
+  transition: opacity 0.2s ease-out;
 }
 
 .card-title {
-  font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  margin-bottom: .2em;
 }
 
 .card-description {
-  font-size: 1.17rem;
+  font-size: 1rem;
 }
 
 /* 嘗試刪掉 正方形的 after (佔用了） */
 /* 新增左右的 after */
 /* 這裡用上下 */
 /* 動畫共有三種 */
-.card-text::before,
-.card-text::after {
+.card::before,
+.card::after {
   content: "";
   position: absolute;
-  width: 90%;
-  height: 90%;
-  transition: transform 0.25s ease-out;
+  top: 1rem;
+  bottom: 1rem;
+  right: 1rem;
+  left: 1rem;
+  transition: transform 0.4s ease-out;
 }
 
-.card-text::before {
-  border-top: 0.01rem solid #fff;
-  border-bottom: 0.01rem solid #fff;
+.card::before {
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
   transform: scale(0, 1);
 }
 
-.card-text::after {
-  border-right: 0.01rem solid #fff;
-  border-left: 0.01rem solid #fff;
+.card::after {
+  border-right: 1px solid #fff;
+  border-left: 1px solid #fff;
   transform: scale(1, 0);
 }
 
 /* hover effect: text appear on img */
 .card:hover .card-text {
-  /* visibility: visible; */
   opacity: 1;
 }
 
 /* hover effect: pseudo element lines animation */
-.card-text:hover::before {
+.card:hover::before {
   transform: scale(1.05, 1);
 }
 
-.card-text:hover::after {
+.card:hover::after {
   transform: scale(1, 1.05);
 }
 
-.card-text:hover {
-  background-color: rgba(255, 255, 255, 0.5);
+.card:hover .card-img {
+  opacity: 0.4;
 }
 
-.card-text:hover>h3,
-.card-text:hover>p {
-  /* 加上這行，hover 結束後、動畫可以滑順收回 */
-  transition: 0.1s ease-in;
-  visibility: visible;
+.card-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
 }
+
 
 /********* 電腦版樣式 *********/
 @media screen and (min-width: 768px) {
