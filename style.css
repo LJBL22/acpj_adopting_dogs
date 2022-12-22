@@ -410,7 +410,8 @@ header {
 
 .adoption-wrapper {
   display: grid;
-  grid-template: repeat (2, 1fr) / 1fr;
+  /* grid-template-columns: 1fr; */
+  grid-template-rows: repeat(2, 1fr) / 1fr;
   /* 陰影 */
   -webkit-box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
@@ -509,5 +510,24 @@ header {
 
   .sub-banner .action {
     font-size: 1.2rem;
+  }
+
+  /* Adoption */
+  .adoption-wrapper {
+    display: grid;
+    grid-template: 1fr / repeat(2, 1fr);
+  }
+
+  .adoption-info {
+    align-items: start;
+    justify-content: center;
+  }
+
+  /* 這邊寫 > 跟單純空一格的差別在於，空一格還會選到子子．．．層 */
+  .adoption-info>.title {}
+
+  .adoption-info>.description {
+    /* 不知道為什麼字型有點怪，又好像還好*/
+    font-size: 1.5rem;
   }
 }
