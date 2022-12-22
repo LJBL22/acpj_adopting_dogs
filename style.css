@@ -13,6 +13,8 @@ html,
 body {
   width: 100%;
   height: 100%;
+  /* 當點擊導覽列內的選項，可以『滑順地』滑到該處 */
+  scroll-behavior: smooth;
 }
 
 body {
